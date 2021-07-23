@@ -2,7 +2,7 @@
   <v-container v-cloak>
     <search/>
     <v-row>
-      <v-col cols="3" sm="4" v-for="(movie, index) in allMovies" :key="index">
+      <v-col cols="3" sm="3" v-for="(movie, index) in allMovies" :key="index">
         <v-skeleton-loader class="mx-auto" type="card" :loading="show">
           <movie-card :movie="movie" />
         </v-skeleton-loader>

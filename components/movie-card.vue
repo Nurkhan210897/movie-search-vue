@@ -2,7 +2,7 @@
   <v-skeleton-loader type="article, actions">
     <md-card>
       <nuxt-link :to="`/movie-info/${movie.imdbID}`">
-        <v-card class="mx-auto" max-width="400">
+        <v-card class="mx-auto h-100" max-width="400">
           <v-img
             class="white--text align-end"
             height="200px"
@@ -30,4 +30,18 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.v-skeleton-loader {
+  height: 100%;
+}
+.md-card{
+  height: 100%;
+  .v-image__image--cover{
+    background-size: contain;
+  }
+  .h-100{
+    height: 100%;
+  }
+}
+
+</style>

@@ -2,7 +2,7 @@
   <form action="">
     <v-text-field
       v-model="searchValue"
-      label="Name"
+      label="Movie title"
       required
       @input="searchMovie"
     ></v-text-field>
