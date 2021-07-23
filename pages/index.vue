@@ -8,22 +8,21 @@
         </v-skeleton-loader>
       </v-col>
     </v-row>
-    <pagination v-if="allMovies.length"/>
+    <pagination v-if="allMovies.length" />
   </v-container>
 </template>
 
 <script>
 export default {
   data: () => ({
-    show: true
+    show: true,
   }),
   computed: {
     allMovies() {
-      if(this.$store.getters.searchData.length){
-        return this.$store.getters.searchData;
-      }else{
-        return this.$store.getters.allMovies;
-      }
+      let searchValue = this.$store.state.searchValue;
+      return this.$store.getters.allMovies.filter((item)=>{
+        return item.Title.toLowerCase().includes(searchValue.toLowerCase())
+      });
     }
   },
 
@@ -37,9 +36,8 @@ export default {
 };
 </script>
 
-
 <style lang="scss">
-  [v-cloak]{
-    display: none;
-  }
+[v-cloak] {
+  display: none;
+}
 </style>

@@ -1,17 +1,28 @@
 <template>
   <form action="">
-    <v-text-field v-model="value" label="Name" required @input="searchMovie"></v-text-field>
+    <v-text-field
+      v-model="searchValue"
+      label="Name"
+      required
+      @input="searchMovie"
+    ></v-text-field>
   </form>
 </template>
 
 <script>
 export default {
   data: () => ({
-    value: ""
+    searchValue: ""
   }),
   methods: {
     searchMovie() {
-      this.$store.commit('SEARCH_DATA', this.value)
+      this.$store.commit("SEARCH_DATA", this.searchValue);
+    }
+  },
+
+  watch: {
+    $route(to, from) {
+      this.searchValue = ''
     }
   }
 };

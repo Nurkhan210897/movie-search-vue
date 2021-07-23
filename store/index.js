@@ -1,18 +1,16 @@
 export const state = () => ({
     allMovies: [],
-    searchData: []
+    searchValue: ''
 })
 
 export const mutations = {
     SET_ALL_MOVIES(state, allMovies) {
+        state.searchValue = ''
         state.allMovies = allMovies.Search;
     },
 
     SEARCH_DATA(state, value) {
-        state.searchData = state.allMovies.filter(item => {
-            return item.Title.toLowerCase().includes(value.toLowerCase())
-        });
-        return state.searchData;
+        state.searchValue = value
     }
 }
 
@@ -29,7 +27,7 @@ export const getters = {
     allMovies(state) {
         return state.allMovies;
     },
-    searchData(state) {
-        return state.searchData;
+    searchValue(state) {
+        return state.searchValue;
     }
 }
